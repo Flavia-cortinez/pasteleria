@@ -1,0 +1,424 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+
+
+
+/*header inicio*/
+.topheader {
+    box-shadow: 0 4px 5px var(--color2); /*sombreado*/
+    position: fixed;/*MOSTRAR SIEMPRE, INCLUSO AL SCROLLEAR*/
+    background-color: var(--color3);
+    left: 0;
+    top: 0;
+    width: 100%;/*OCUPE TODO EL ANCHO DISPONIBLE*/
+    opacity: 1;
+    z-index: 1;  
+}
+
+/* BARRA DE NAVEGAC SUPERIOR ---------------------------------*/
+.topnav {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/*MENU---------------------------------------------------------*/
+.menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.menu li {
+    padding: 0 15px;
+}
+.menu a {
+    color: var(--color5);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 50px;
+    text-transform: uppercase;   /*transformar en mayusculas*/
+    position: relative;   /*posicion relativa respecto a la barra resaltadora*/
+}
+.menu a::after {     /*barra resalta palabras*/
+    content: "";
+    background-color: var(--color6);
+    position: absolute;   /*posicion absoluta respecto del menu*/
+    left: 0;
+    top: calc(100% + 4px);
+    width: 100%;
+    height: 4px;
+    opacity: 0;
+    transition: opacity 0.5s;   /*retardo en aparecer*/
+}
+.menu a.selected::after,
+.menu a:hover::after {
+    opacity: 0.8;
+}
+.menu a:hover {    /*al pasar el mouse cambia de color el menu*/
+    color: var(--color6);
+}
+.open-menu,    /*el icono solo aparece en disp pequeños*/
+.close-menu {    /*entonces lo ocultamos acá con display:none*/
+    display: none;
+    font-size: 20px;
+}
+.logotype {
+    display: flex;
+    justify-content: center;
+}
+
+.contenedorcarrusel{
+    width: 90%;
+    height: 200px;
+    overflow: hidden;
+    margin-left: 5%;
+    margin-top: 10px;
+}
+
+.carrusel{
+    
+    height: 100%;
+    position: relative;
+}
+
+.direccion{
+    height: 40px;
+}
+.tarjetas{
+    
+    height: 100%;
+    display: flex;
+
+
+}
+.tarjetas img{
+    padding: 5px;
+}
+.flechas{
+    
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    margin-left: 10px;
+}
+
+#carrusel-1{
+    background-color: antiquewhite;
+}
+#carrusel-2{
+    background-color:rgb(161, 236, 236);
+}
+#carrusel-3{
+    background-color: rgb(226, 167, 226);
+}
+
+.flechas a{
+    text-decoration: none;
+}
+
+#puntos{
+    background-color: rgb(193, 193, 233);
+    display: flex;
+    justify-content: space-around;
+}
+
+#puntos a{
+    font-size: 2em;
+    text-decoration: none;
+    color: rgb(46, 44, 44);
+    margin: 0;
+    padding: 0;
+}
+
+img{
+    border-radius: 15%;
+    width: 50%;
+    height: 100%;
+
+}
+
+.grid-container{
+    
+    
+    width: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "header "
+                         " main"
+                         "footer";
+    
+}
+
+
+
+
+#header{
+    background-color: rgb(238, 214, 214);
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+.main{
+    height: auto;
+
+}
+
+.footer{
+    height: 50px;
+    background-color: aquamarine;
+}
+
+h1{
+    font-family: 'Pacifico', cursive;
+    padding: 0%;
+    margin: 0;
+    font-size: 25px;
+    
+}
+
+
+.logo{
+    display: flex;
+    justify-content: center;
+    height: auto;
+    width: 100%;
+    border: 1px solid black;
+    
+}
+
+.presentacion{
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 30px;
+}
+.presentacion h2{
+    font-size: 20px;
+    font-family: 'Lemon', serif;
+    color: rgb(77, 75, 75);
+}
+
+.presentacion h3{
+    font-size: 15px;
+    font-family: 'Caveat', cursive;
+
+}
+
+.contenedor{
+    margin-top: 100px;
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+   
+    margin-left: 5%;
+  
+
+}
+.tarjeta-2{
+    
+    
+    width: 45%;
+    
+    
+}
+.tarjeta-2 img{
+    width: 100%;
+    height: 200px;
+    border-radius: 10%;
+}
+
+.tarjeta-2 a{
+    background-color: aquamarine;
+    border-radius: 25%;
+    
+}
+
+.pre-torta{
+    display: none;
+}
+
+
+
+@media (max-width: 460px) { 
+    /*MENU*/
+    .menu {
+        flex-direction: column;    /*cambia el display flex de filas a columnas*/
+        position: fixed;   /*desacoplar menu de barra sup y acoplarlo al viewport, dejarlo fijo*/
+        left: 0;
+        top: 0;
+        width: 100%;  /*que ocupe todo el ancho del viewport*/
+        align-items: center;   /*alinear al centro horizontalmente*/
+        background-color: var(--color1);
+        color: var(--color6);
+        height: 100%;   /*que ocupe todo el alto del viewport*/
+        overflow-y: auto;  /*coloca un scroll en caso de q no sea vea todo el menu*/
+    
+        opacity: 0;/*menu invisible,transparente*/
+        pointer-events: none;/*menú no clickeable*/
+    
+        transition: opacity 0.3s;  /*transicion de apertura/cierre de menu en disp moviles*/
+    }
+    .menu li {
+        padding: 0;
+    }
+    .menu a {
+        color: var(--color5);
+        line-height: 150px;
+        text-transform: uppercase;
+        font-size: 25px;
+    }
+    .open-menu,
+    .close-menu {
+        display: block;
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
+    
+    .close-menu {
+        align-self: flex-end;/*CDO LOS DEMAS ITEMS ESTAN ALINEADOS, Y ESTE LO QUEREMOS DIFERENTE*/
+        padding: 2px 16px;
+        font-size: 70px;
+        color: var(--color3);
+    }
+    
+    /*en disp moviles fijamos que el menu no sea vea cdo esta cerrado (opacity:0)*/
+    /*con el menu abierto, mostrar (opacity:1) y permitir clicks*/
+    .menu_opened {
+        opacity: 1;
+        pointer-events: all;
+    }
+    .menu a::after {
+        content: none;
+    }
+    .menu a.selected::after,
+    .menu a:hover::after {
+        opacity: 1;
+    }
+    .menu a:hover,
+    .menu a.selected {
+        color: var(--color3);
+    }
+    
+    }
+
+
+
+
+
+@media only screen and (min-width:460px) and (max-width:900px){
+    
+    .pre-torta{
+       display: flex;
+    }
+    .pre-torta img{
+        width: 200px;
+    }
+    .info{
+        margin-left: 50px;
+    }
+
+    .contenedor{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        margin: 0;
+        margin-left: 3%;
+    }
+    .tarjeta-2{
+        display: flex;
+        width: 100%;
+        margin: 15px;
+
+    }
+    .tarjeta-2 img{
+        width: 20%;
+        
+    }
+   .ancho{
+    display: flex;
+    margin-left: 10px;
+    width: 80%;
+    border: solid 2px red;
+    flex-direction: column;
+    
+   }
+   .ancho h3{
+    height: 90%;
+    margin-top: 95px;
+   }
+   .ancho a{
+    margin-left: 45%;
+    width: 80px;
+   }
+}
+
+
+@media only screen and (min-width:901px) and (max-width:1200px){
+
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.contenedor{
+    margin-top: 100px;
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+   
+    margin-left: 5%;
+}
+.tarjeta-2{
+    
+    
+    width: 45%;
+    
+    
+}
+.tarjeta-2 img{
+    width: 100%;
+    height: 200px;
+    border-radius: 10%;
+}
+
+.tarjeta-2 a{
+    background-color: aquamarine;
+    border-radius: 25%;
+    
+}
+
+.tarjeta-3{
+    width: 100%;
+    display: flex;
+}
+
+.tarjeta-3 img{
+    width: 50%;
+    border-radius: 10%;
+}
+
+.a{
+    width: 500px;
+    height: 500px;
+    background-color: aquamarine;
+
+}
